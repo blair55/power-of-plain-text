@@ -1,0 +1,261 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>power of plain text</title>
+    <meta name="description" content="">
+    <meta name="author" content="unkown">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="//code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="//code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/deedle.css" />
+    <link type="text/css" rel="stylesheet" href="css/custom.css" />
+    <script src="fsharp.formatting/styles/tips.js" type="text/javascript"></script>
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/fsreveal.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script language="javascript" type="text/javascript">
+        function init()
+        {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+        }
+        window.addEventListener("load", init, false);
+    </script>
+</head>
+<body>
+    <div class="reveal">
+        
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section >
+<h1>The power of plain text</h1>
+</section>
+<section >
+<h2>What isn't plain text?</h2>
+<ul>
+<li>.doc, .xls, .ppt, .pdf files</li>
+<li>images &amp; video</li>
+<li>binary data format</li>
+</ul>
+</section>
+<section >
+<p><img src="images/pdf.png" alt="pdf" /></p>
+</section>
+<section >
+<h2>What are plain text files?</h2>
+<ul>
+<li>anything that you can open in a plain text editor and understand its content</li>
+<li>no presentation power, just rows of text</li>
+</ul>
+</section>
+<section >
+<section >
+<h2>Why plain text?</h2>
+<ul>
+<li>usefor taking notes, todo lists, draft emails/blogs</li>
+<li>text editors are very quick to open</li>
+</ul>
+</section>
+<section >
+<h3>Portable</h3>
+<aside class="notes">
+can be consumed on all platforms and edited by huge array of non-proprietarty tools<br/>
+</aside>
+</section>
+<section >
+<h3>Insurance against obselence</h3>
+<aside class="notes">
+longevity - data can outlive any application needed to read or edit it, suitable for archiving<br/>
+the data becomes meaningless without the context the application provides for it.<br/>
+</aside>
+</section>
+<section >
+<h3>Searching &amp; Diffing</h3>
+<ul>
+<li>makes it very easy to <a href="https://github.com/mediaingenuity/Loans.WebApp/commit/ea6b6a2e8e2a8a094acd1f70595b91ccf2265174">compare changes</a></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>What can you do with it?</h2>
+<ul>
+<li>plain text formats have different strengths</li>
+</ul>
+</section>
+<section >
+<h3>csv</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">first</span>, <span class="i">last</span>, <span class="i">age</span>, <span class="i">gender</span>, <span class="i">postal</span>
+<span class="i">Cameron</span>, <span class="i">Wood</span>, <span class="n">38</span>, <span class="i">Female</span>, <span class="i">V0T</span> <span class="n">6G2</span>
+<span class="i">Edna</span>, <span class="i">Conner</span>, <span class="n">42</span>, <span class="i">Male</span>, <span class="i">X9X</span> <span class="n">6H3</span>
+<span class="i">Frederick</span>, <span class="i">Manning</span>, <span class="n">31</span>, <span class="i">Male</span>, <span class="i">V2V</span> <span class="n">6X2</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<h3>json</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="json">{
+    first: "Cameron",
+    last: "Wood",
+    Age: "38",
+    likes: ["camping", "golf"]
+}
+</code></pre></td></tr></table>
+</section>
+<section >
+<h3>xml</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="xml"><span class="prep">&lt;?</span>xml version=<span class="s">"1.0"</span> encoding=<span class="s">"UTF-8"</span><span class="prep">?&gt;</span>
+<span class="k">&lt;</span><span class="i">root</span><span class="k">&gt;</span>
+    <span class="k">&lt;</span><span class="i">row</span><span class="k">&gt;</span>
+        <span class="k">&lt;</span><span class="i">first</span><span class="k">&gt;</span>Cameron<span class="k">&lt;/</span><span class="i">first</span><span class="k">&gt;</span>
+        <span class="k">&lt;</span><span class="i">last</span><span class="k">&gt;</span>Wood<span class="k">&lt;/</span><span class="i">last</span><span class="k">&gt;</span>
+        <span class="k">&lt;</span><span class="i">age</span><span class="k">&gt;</span>38<span class="k">&lt;/</span><span class="i">age</span><span class="k">&gt;</span>
+        <span class="k">&lt;</span><span class="i">likes</span><span class="k">&gt;</span>
+            <span class="k">&lt;</span><span class="i">like</span><span class="k">&gt;</span>camping<span class="k">&lt;/</span><span class="i">like</span><span class="k">&gt;</span>
+            <span class="k">&lt;</span><span class="i">like</span><span class="k">&gt;</span>golf<span class="k">&lt;/</span><span class="i">like</span><span class="k">&gt;</span> 
+        <span class="k">&lt;/</span><span class="i">likes</span><span class="k">&gt;</span>
+    <span class="k">&lt;/</span><span class="i">row</span><span class="k">&gt;</span>
+<span class="k">&lt;/</span><span class="i">root</span><span class="k">&gt;</span>
+</code></pre></td></tr></table>
+</section>
+<section >
+<h3>html</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="html"><span class="k">&lt;</span><span class="i">html</span><span class="k">&gt;</span>
+    <span class="k">&lt;</span><span class="i">body</span><span class="k">&gt;</span>
+        <span class="k">&lt;</span><span class="i">h1</span><span class="k">&gt;</span>Plain text is great<span class="k">&lt;/</span><span class="i">h1</span><span class="k">&gt;</span>
+        <span class="k">&lt;</span><span class="i">p</span><span class="k">&gt;</span>I can be read by anthing<span class="k">&lt;/</span><span class="i">p</span><span class="k">&gt;</span>
+        <span class="k">&lt;</span><span class="i">ul</span><span class="k">&gt;</span>
+            <span class="k">&lt;</span><span class="i">li</span><span class="k">&gt;</span>Portable<span class="k">&lt;/</span><span class="i">li</span><span class="k">&gt;</span>
+            <span class="k">&lt;</span><span class="i">li</span><span class="k">&gt;</span>Longevity<span class="k">&lt;/</span><span class="i">li</span><span class="k">&gt;</span>
+            <span class="k">&lt;</span><span class="i">li</span><span class="k">&gt;</span>Focus on the text<span class="k">&lt;/</span><span class="i">li</span><span class="k">&gt;</span>
+        <span class="k">&lt;/</span><span class="i">ul</span><span class="k">&gt;</span>
+    <span class="k">&lt;/</span><span class="i">body</span><span class="k">&gt;</span>
+<span class="k">&lt;/</span><span class="i">html</span><span class="k">&gt;</span>
+</code></pre></td></tr></table>
+<p><a href="https://github.com/mediaingenuity/Loans.Api/blob/master/README.md">example</a></p>
+</section>
+<section >
+<h3>md</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">#<span class="i">Plain</span> <span class="i">text</span> <span class="i">is</span> <span class="i">great</span>
+
+<span class="i">I</span> <span class="i">can</span> <span class="i">be</span> <span class="i">read</span> <span class="i">by</span> <span class="i">anything</span>
+
+<span class="o">-</span> <span class="i">Portable</span>
+<span class="o">-</span> <span class="i">Longevity</span>
+<span class="o">-</span> <span class="i">Focus</span> <span class="i">on</span> <span class="i">the</span> <span class="i">text</span>
+</code></pre></td>
+</tr>
+</table>
+<p><a href="https://github.com/mediaingenuity/Loans.Api/blob/master/README.md">example</a></p>
+</section>
+<section >
+<p><a href="https://github.com/mediaingenuity/Loans.Api/blob/master/README.md">example</a></p>
+</section>
+</section>
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Add the nohighlight class and data-noescape attribute to code elements that have already been formatted by FSharp.Formatting
+        $('pre.highlighted code').addClass('nohighlight').attr('data-noescape', '');
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+</body>
+</html>
+
