@@ -113,7 +113,7 @@
         </body>
     </html>
 
-[example](https://github.com/mediaingenuity/Loans.Api/blob/master/README.md)
+[example](https://blair55.github.io/power-of-plain-text/images/hello.html)
 
 ---
 
@@ -127,11 +127,6 @@
     - Longevity
     - Focus on the text
 
-[example](https://github.com/mediaingenuity/Loans.Api/blob/master/README.md)
+[example](https://github.com/blair55/power-of-plain-text/blob/gh-pages/images/hello.md)
 
 ---
-
-[example](https://github.com/mediaingenuity/Loans.Api/blob/master/README.md)
-
----
-
